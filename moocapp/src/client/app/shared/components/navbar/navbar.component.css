@@ -1,0 +1,133 @@
+.navbar
+{
+  border-radius: 0;
+  font-weight: bold !important;
+  margin-bottom: 0 !important;
+}
+
+.navbar-default
+{
+  background-color: #0d559d;
+  border-color: #0d559d;
+}
+
+.navbar-default .navbar-brand
+{
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus
+{
+  color: #ffffff;
+}
+
+.navbar-default .navbar-text
+{
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > a
+{
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus
+{
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li.router-link-active > a,
+.navbar-default .navbar-nav > li.router-link-active > a:hover,
+.navbar-default .navbar-nav > li.router-link-active > a:focus
+{
+  color: #ffffff;
+  background-color: #0d559d;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus
+{
+  color: #ffffff;
+  background-color: #0d559d;
+}
+
+.navbar-default .navbar-toggle
+{
+  border-color: #0d559d;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus
+{
+  background-color: #0d559d;
+}
+
+.navbar-default .navbar-toggle .icon-bar
+{
+  background-color: #ecf0f1;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form
+{
+  border-color: #ecf0f1;
+}
+
+.navbar-default .navbar-link
+{
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-link:hover
+{
+  color: #ffffff;
+}
+.main-menu
+{
+  margin-left: 15%;
+}
+
+@media (max-width: 767px)
+{
+  .main-menu
+  {
+    margin-left: 0%;
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a
+  {
+    color: #ecf0f1;
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus
+  {
+    color: #ffffff;
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu > li.router-link-active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > li.router-link-active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li.router-link-active > a:focus
+  {
+    color: #ffffff;
+    background-color: #0d559d;
+  }
+}
+.router-link-active
+{
+  background-color: red;
+  color: #68a3ff;
+}
+
+.navbar-brand
+{
+  background-color: #0d559d;
+}
+
+li > a:hover
+{
+  background-color: #093d70;
+}

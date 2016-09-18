@@ -1,0 +1,106 @@
+@media (max-width: 1080px)
+{
+  .mobile-app {
+    padding-top: 70px;
+  }
+  .app-left img {
+    width: 85%;
+  }
+  .app-right {
+    margin-top: 40px;
+    padding-left: 0;
+  }
+  .footer-grid ul li a {
+    font-size: 12.5px;
+  }
+  .app-right p {
+    font-size: 14px;
+    line-height: 27px;
+  }
+}
+
+@media (max-width: 480px)
+{
+  .app-right {
+    margin-top: 20px;
+    width: 100%;
+    padding-left: 15px;
+  }
+  .app-button {
+    width: 35%;
+  }
+  .mobile-app {
+    padding: 30px 0;
+  }
+  .app-left img {
+    width: 100%;
+    margin-top: 10%;
+    border-bottom: 1px solid #788B9E;
+  }
+  .app-left {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+@media (max-width: 991px)
+{
+  .app-left {
+    width: 40%;
+    float: left;
+  }
+  .app-left img {
+    width: 90%;
+  }
+  .app-right {
+    width: 60%;
+    float: left;
+    margin-top: 10px;
+  }
+  .app-right h3 {
+    font-size: 24px;
+  }
+  .app-right p {
+    font-size: 13px;
+    line-height: 25px;
+    margin: 10px 0 20px 0;
+  }
+  .app-button img {
+    width: 80%;
+  }
+  .mobile-app {
+    padding-top: 60px;
+  }
+}
+
+
+.mobile-app {
+  background-color: #fff;
+  padding-top:80px;
+}
+.app-right {
+  margin-top:50px;
+}
+.app-right h3 {
+  font-size: 28px;
+  color: #5e5e5e;
+  line-height: 35px;
+}
+.app-right h3 span {
+  color:#000;
+  margin:0 7px;
+}
+.app-right p {
+  margin:15px 0 30px 0;
+  color: #4b4948;
+  font-size:15px;
+  line-height:25px;
+}
+.app-button {
+  float: left;
+}
+.app-button a {
+  display:block;
+}
+.app-button img {
+  width:90%;
+}

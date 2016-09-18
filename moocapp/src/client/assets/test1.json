@@ -1,0 +1,105 @@
+{
+  "title": "Prueba: Estructura en C++ y tipos de variables",
+  "body": [
+    {
+      "title": "¿Cuál es el valor correcto que retorna el programa cuando finaliza con éxito?",
+      "options": [
+        "-1",
+        "1",
+        "0",
+        "El programa no retorna nada."
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "¿Cuál es la función obligatoria que debe tener un programa de C++",
+      "options": [
+        "start()",
+        "system()",
+        "main()",
+        "program()"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "¿Cuál es la simbología correcta para indicar que una función inicia y termina en C++?",
+      "options": [
+        "{ }",
+        "->",
+        "BEGIN and END",
+        "( )"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "¿Cuál es la puntuación que se utiliza para terminar una línea de código?",
+      "options": [
+        ".",
+        ";",
+        ":",
+        "'"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "¿Cuál es la sentencia correcta que se debe utilizar para hacer un comentario?",
+      "options": [
+        "*/ Comentario */",
+        "** Comentario **",
+        "/* Comentario */",
+        "{ Comentario }"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "¿Cuál de los siguientes tipos de datos NO es el correcto en el lenguaje C++?",
+      "options": [
+        "Float",
+        "Real",
+        "int",
+        "double"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "¿Cuál de los siguientes operadores es el correcto para comparar dos valores en C++?",
+      "options": [
+        ":=",
+        "=",
+        "Equal",
+        "=="
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "La definición de una variable se realiza de la siguiente manera:",
+      "options": [
+        "include variable1;",
+        "const int variable1=25;",
+        "define int variable1;",
+        "int variable1=25;"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "En C++, 14 % 4 es igual a:",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "Las variables que son declaradas pero que no son inicializadas contienen:",
+      "options": [
+        "Espacios en Blanco",
+        "Ceros",
+        "Valores “Basura“",
+        "Nada – Ellos están vacíos."
+      ],
+      "answear": "c"
+    }
+  ]
+}

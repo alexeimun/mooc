@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['/']"><i class="fa fa-database"></i> <i>Academic</i> <b>MOOC </b></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+    <ul class="nav navbar-nav main-menu" *ngIf="userSvc.getUser()">
+    <!--main links here-->
+      <li><a class="pointer"  [routerLink]="['/courses']"><i class="fa fa-bookmark"></i> Courses</a></li>
+    </ul>
+
+
+    <!--<ul class="nav navbar-nav navbar-right">-->
+    <div class="navbar-custom-menu navbar-right">
+      <ul class="nav navbar-nav" *ngIf="userSvc.getUser()">
+
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu" id="usermenu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img [src]="userSvc.getUser().IMAGE_URL" class="user-image" alt="User Image"/>
+            <span class="hidden-xs">{{ userSvc.getUser().NAME }}</span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header" style="background-color: #106cc8">
+              <img [src]="userSvc.getUser().IMAGE_URL" class="img-circle" alt="User Image"/>
+              <p>
+                {{ userSvc.getUser().USERNAME }}
+              </p>
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <!--<div class="pull-left">-->
+                <!--<a class="btn btn-default btn-flat" [routerLink]="['/profile']">Profile <i-->
+                  <!--class="ion-ios-color-wand"></i></a>-->
+              <!--</div>-->
+              <div class="pull-right">
+                <a style="" id="logout" (click)="userSvc.signOut()" class="btn btn-default btn-flat">Sign out<i
+                  style="color: #b60000" class="ion-power"></i></a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav" *ngIf="!userSvc.getUser()">
+        <li><a [routerLink]="['/login']"><i class="fa fa-sign-in"></i> Login</a></li>
+        <li><a [routerLink]="['/signup']"><i class="fa fa-arrow-circle-right"></i> Sign up</a></li>
+      </ul>
+    </div>
+    <!--<li><a href="#iuiu"><i class="fa fa-sign-out"></i> Logout</a></li>-->
+    <!--</ul>-->
+  </div><!-- /.navbar-collapse -->
+</nav>

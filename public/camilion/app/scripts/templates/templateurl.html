@@ -1,0 +1,10 @@
+<input type="text" ng-model="model" class="input-node" placeholder="{{prompt}}" ng-keydown="selected=false"/>
+
+<div class="items" ng-hide="!model.length || selected || available">
+
+    <div class="item" ng-repeat="item in items | iconFilter:model | limitTo:5:5  track by $index"  ng-click="handleSelection(item.id)"
+         style="cursor:pointer" ng-class="{active:isCurrent($index)}" ng-mouseenter="setCurrent($index)">
+        <p class="title"><i class="fa fa-{{item.id}}"></i> {{item.id}}</p>
+        <!--<p class="subtitle">{{item.name}}</p>-->
+    </div>
+</div>

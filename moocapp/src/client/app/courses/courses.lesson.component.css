@@ -1,0 +1,33 @@
+:host
+{
+  display: block;
+  background: #f4f3f2;
+}
+
+.btest
+{
+  background: #0d559d;
+  padding: 1px;
+  color: white;
+  font-size: 18pt;
+  cursor: pointer;
+  border-radius: 5px
+}
+.btest:hover
+{
+  opacity: .6;
+}
+
+.block-prev-test
+{
+  box-shadow: dimgray 1px 1px 2px 1px;
+  background: white;
+  border-top: 20px solid #0d559d;
+  border-bottom: 5px solid #0d559d;
+  padding: 10px;
+}
+.qtext
+{
+  font-weight: 600;
+  color: #0d559d;
+}

@@ -1,0 +1,22 @@
+<div class="courses-header">
+  <p>¡Cursos al alcance de un Click!</p>
+</div>
+<div class="container">
+  <h1 class="general-title">Cursos</h1>
+  <div class="course" *ngFor="let course of courses" [routerLink]="['/courses',course.URL_NAME]">
+    <div class="course-title">
+      <span class="course-title-t"> <i class="fa fa-bookmark"></i> {{course.TITLE}}</span>
+    </div>
+    <img [src]="course.IMAGE" alt="{{ course.TITLE }}" class="img-responsive" width="354" height="286">
+    <div class="course-summary">
+      <span><i class="fa fa-user"></i> Profesor: {{ course.TEACHER_NAME }}</span>
+
+      <!--<p class="course-starts" align="right"><i class="fa fa-clock-o"></i> Comienza: {{ course.STARTSIN }}</p>-->
+      <p class="course-starts"><span style="float: left;"><i class="fa fa-users"> </i>  {{ course.STUDENTS }}</span>
+      <p class="course-starts"><span style="float: right;"><i class="fa fa-clock-o"> </i> Comienza: {{ course.STARTS_IN }}</span>
+      </p>
+      <br>
+    </div>
+  </div>
+</div>
+<br>

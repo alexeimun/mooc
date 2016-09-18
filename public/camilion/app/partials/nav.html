@@ -1,0 +1,212 @@
+<style>
+
+    .input-node
+    {
+        border: 0;
+        box-shadow: none;
+        border-bottom: 1px solid;
+        padding: 5px;
+        background: white;
+        margin: 5px;
+    }
+
+    .input-node:focus
+    {
+        border-bottom: 2px dashed !important;
+        outline: none;
+    }
+
+    .btn
+    {
+        margin-right: 8px;
+    }
+
+    .angular-ui-tree-handle
+    {
+        background: white;
+        border: 1px solid #dae2ea;
+        color: #7c9eb2;
+        padding: 10px 10px;
+    }
+
+    .angular-ui-tree-handle:hover
+    {
+        color: #438eb9;
+        background: #f4f6f7;
+        border-color: #dce2e8;
+    }
+
+    .angular-ui-tree-placeholder
+    {
+        background: #f0f9ff;
+        border: 2px dashed #bed2db;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    tr.angular-ui-tree-empty
+    {
+        height: 100px
+    }
+
+    .group-title
+    {
+        background-color: #687074 !important;
+        color: #fff !important;
+    }
+
+    /* --- Tree --- */
+    .tree-node
+    {
+        border: 1px solid #dae2ea;
+        background: white;
+        color: #7c9eb2;
+    }
+
+    .nodrop
+    {
+        background-color: #f2dede;
+    }
+
+    .tree-node-content
+    {
+        margin: 10px;
+    }
+
+    .tree-handle
+    {
+        padding: 10px;
+        background: #428bca;
+        color: #fff;
+        margin-right: 10px;
+    }
+
+    .angular-ui-tree-handle:hover
+    {
+    }
+
+    .angular-ui-tree-placeholder
+    {
+        background: #f0f9ff;
+        border: 2px dashed #bed2db;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+</style>
+
+<style>
+    .loading_div
+    {
+        display: block;
+        margin: 10px 0px;
+    }
+
+    .items
+    {
+        left: 50%;
+        position: absolute;
+        z-index: 9999 !important;
+    }
+
+    .item
+    {
+        width: 193px;
+        background: #f2f2f2;
+        padding: 5px;
+        box-shadow: 0px 0px 5px #ccc;
+    }
+
+    .item.title
+    {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .active
+    {
+        background-color: #009f56;
+        color: #f2f2f2;
+    }
+</style>
+<!-- Nested node template -->
+<script type="text/ng-template" id="nodes_renderer.html">
+    <div class="tree-node">
+        <div class="pull-left tree-handle" ui-tree-handle>
+            <span class="glyphicon glyphicon-list"></span>
+        </div>
+        <div class="tree-node-content">
+            <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">
+        <span class="glyphicon" ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+          }">
+        </span>
+            </a>
+            <input type="text" ng-model="node.label" class="input-node" placeholder="label">
+
+            <a ng-show="node.url.length" href="{{ node.url }}" title="Open in a new window" target="_blan k"> <i class="fa fa-hand-o-right"></i></a>
+            <input type="text" class="input-node" placeholder="url" ng-model="node.url">
+            <span class="fa fa-{{node.options.icon}}"></span>
+            <typeahead items="nodes" prompt="icon" title="name" subtitle="abbreviation" model="node.options.icon"/>
+
+            <!--<ui-select ng-model="node.options.icon" theme="bootstrap" style="width: 100px;" title="Choose a country">-->
+                <!--<ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>-->
+                <!--<ui-select-choices repeat="icon in items | filter: $select.search">-->
+                    <!--<span ng-bind-html="icon.name | highlight: $select.search"></span>-->
+                <!--</ui-select-choices>-->
+            <!--</ui-select>-->
+
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="ridNode(this)"><span
+                    class="glyphicon glyphicon-remove"></span></a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)"
+               style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+    </div>
+    <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+        <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+        </li>
+    </ol>
+</script>
+
+<div class="container"
+     style="padding-top: 20px;padding-bottom: 20px;background: white; margin: 10px;border-radius: 10px">
+
+    <div class="row">
+        <div class="col-sm-push-1 col-sm-6">
+            <button ng-click="expandAll()">Expand all</button>
+            <button ng-click="collapseAll()">Collapse all</button>
+            <select ng-options="item as item.label for item in layouts track by item.value" ng-model="layout" ng-change="changeLayout()"></select>
+
+        </div>
+        <div class="col-sm-5">
+            <p>Search: <input ng-model="query" ng-change="findNodes()"></p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-push-1 col-sm-10">
+            <form ng-submit="sendForm()">
+                <div ui-tree id="tree-root">
+                    <ol ui-tree-nodes ng-model="navItems">
+                        <li ng-repeat="node in navItems" ui-tree-node ng-include="'nodes_renderer.html'" ng-show="visible(node)"></li>
+                    </ol>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-info">Submit changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<!--{{  navItems |json }}-->
+<!--<script>-->
+    <!--$('#layouts').load('ccg/resolvelayouts', {id: 10}, function (a)-->
+    <!--{-->
+        <!--console.log(a);-->
+    <!--})-->
+<!--</script>-->

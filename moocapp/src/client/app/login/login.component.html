@@ -1,0 +1,53 @@
+<div class="login-page">
+  <div class="login-box">
+    <div class="login-logo" style="opacity: .85;">
+      <a><span style="color:#fefaff; text-shadow: 2px 2px #2b269a;"><b>Login</b></span></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body" id="contenedor" style="opacity: .95;">
+
+      <form class="form-horizontal" style="padding: 30px" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div style="display: none" id="badlogin" class="alert alert-danger">
+          <i class="fa fa-exclamation-circle"></i> Invalid credentials!
+        </div>
+        <div class="form-group has-feedback">
+          <input autofocus type="text" class="form-control" placeholder="Username or email" required [(ngModel)]="login.USER_AUTH"
+                 name="user_auth"/>
+          <span class="fa fa-user form-control-feedback" style="color:#106cc8; "></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Password" name="password" required
+                 [(ngModel)]="login.PASSWORD" name="password"/>
+          <span class="fa fa-lock form-control-feedback" style="color:#106cc8;"></span>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-xs-push-3">
+            <button type="submit" class="btn btn-block btn-login" [disabled]="!loginForm.form.valid">Go <i
+              class="fa fa-sign-in"></i></button>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!--<br>-->
+        <hr>
+        <div class="row">
+          <div class="col-xs-12 col-xs-push-0">
+            <a class="btn btn-block btn-social btn-microsoft" (click)="userService.login()">
+              <span class="fa fa-google"></span> Sign in with a Google account
+            </a>
+
+            <!--<a class="btn btn-block btn-social btn-github" (click)="userService.logout()">-->
+              <!--<span class="fa fa-google"></span> Signout-->
+            <!--</a>-->
+          </div>
+        </div>
+        <br>
+        <div style="text-align: center;"><a class="pointer" (click)="router.navigate(['/signup'])">
+          <small class="bold">New here? Create Account</small>
+        </a></div>
+      </form>
+    </div>
+    <br>
+    <!-- /.login-box-body -->
+  </div>
+</div>
+<!-- /.login-box -->

@@ -1,0 +1,165 @@
+{
+  "title": "Examen de validación de conceptos",
+  "body": [
+    {
+      "title": "Tú necesitas calcular el cuadrado de un número, ¿Cuál es la entrada para este problema?",
+      "options": [
+        "Cuadrado del número",
+        "Cubo del número",
+        "Número",
+        "Entrada"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "Tú necesitas calcular el cuadrado de un número, ¿Cuál es la salida para este problema?",
+      "options": [
+        "Cuadrado del número",
+        "Cubo del número",
+        "Número",
+        "Entrada"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "Tú necesitas calcular el área de un rectángulo. El ancho y el alto del rectángulo está dado por; ¿cuáles son las entradas de este problema?",
+      "options": [
+        "Área y Longitud",
+        "Ancho y Área",
+        "Ancho y Alto",
+        "Área"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "Tú necesitas calcular el área de un rectángulo. El ancho y el alto del rectángulo está dado por; ¿cuáles son las salidas de este problema?",
+      "options": [
+        "Área y Longitud",
+        "Ancho y Área",
+        "Ancho y Alto",
+        "Área"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "¿Qué es un algoritmo?",
+      "options": [
+        "La entrada del problema",
+        "La salida del problema",
+        "Las instrucciones paso a paso para resolver un problema.",
+        "Ninguna de las anteriores"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "Tú necesitas calcular el volumen de un cubo. ¿Cuáles son las entradas para este problema?",
+      "options": [
+        "Longitud, ancho y altura del cubo",
+        "Volumen del cubo",
+        "Longitud y Alto del cubo",
+        "Ninguna de las anteriores"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "Depurar es el proceso de:",
+      "options": [
+        "Identificar las entradas del problema",
+        "Quitar los errores, testear y revisar un programa para y verificar la salida",
+        "Identificar la salida.",
+        "Todas las anteriores."
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "Tú necesitas calcular la siguiente ecuación: z = a * 2 + b * 3. ¿Cuáles son las entradas de este problema?",
+      "options": [
+        "“a” y “b”",
+        "“z” y “a”",
+        "“b” y “z”",
+        "“a”,” b” y “z”"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "Cuantos caracteres hay en la cadena “ penta:”",
+      "options": [
+        "6",
+        "5",
+        "7",
+        "8"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "¿Cuál de estos no es un tipo de dato valido?:",
+      "options": [
+        "Caracteres",
+        "Cadenas",
+        "Enteros",
+        "Sumas"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "El resultado de la siguiente operación es 7 // 2",
+      "options": [
+        "3.5",
+        "3",
+        "4",
+        "2"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "El resultado de la siguiente operación 8 % 5 es:",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "El resultado de la siguiente operación 7 / 2 es:",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "3.5"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "El resultado de la siguiente operación 6 * 3 % 2 es:",
+      "options": [
+        "0",
+        "6",
+        "9",
+        "318"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "El resultado de la siguiente operación 8 ^ 0 es:",
+      "options": [
+        "1",
+        "0",
+        "16",
+        "Indefinido"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "Las operaciones matemáticas en la programación tienen una precedencia, ¿cuál es la precedencia más baja?",
+      "options": [
+        "Exponenciación",
+        "Paréntesis",
+        "Suma y Resta",
+        "Multiplicación y División"
+      ],
+      "answear": "c"
+    }
+  ]
+}

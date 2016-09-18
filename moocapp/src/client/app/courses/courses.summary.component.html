@@ -1,0 +1,147 @@
+<div *ngIf="prevtest" class="content">
+  <div class="row">
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 block-prev-test">
+      <form #prevtestForm="ngForm">
+        <div class="alert alert-info">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong><i class="fa fa-warning"></i> Examen previo al curso</strong> Este examen se aprueba con un puntaje
+          mínimo del 60% para poder participar del curso
+        </div>
+
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong><i class="fa fa-warning"></i> Tienes {{ 3-attempt }} intentos para este examen.</strong>
+        </div>
+
+        <h3 style="color:#0d559d;text-align: center;"> {{ test.title }}</h3>
+        <div *ngFor="let question  of test.body;let num = index;">
+          <div class="row">
+            <div class="col-lg-offset-1 col-lg-11"> {{ num+1 }}. <span class="qtext">{{question.title}}</span></div>
+          </div>
+          <div class="row" *ngFor="let option  of question.options;let i=index">
+            <div class="col-lg-offset-1 col-lg-1 col-md-1"><input type='radio' value="{{ literals[i] }}"
+                                                                  name="option{{ num+'r'+i }}"
+                                                                  [(ngModel)]="question.submit" required></div>
+            <div class="col-lg-8 col-md-8" style='text-align: justify;'>{{ literals[i] }}) {{ option }}</div>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="col-lg-5 col-lg-offset-5">
+            <button [disabled]="!prevtestForm.form.valid" type="button"
+                    class="btn {{  !prevtestForm.form.valid? 'btn-danger':'btn-success' }}"
+                    (click)="checkAnswears()">
+              <i class="fa {{  !prevtestForm.form.valid? 'fa-exclamation-triangle':'fa-paper-plane' }}"></i>
+              {{ !prevtestForm.form.valid?'Debe llenar todo el formulario': 'Enviar y continuar'}}
+            </button>
+          </div>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>
+</div>
+<div *ngIf="exists && !prevtest && !score && attempt!=3" class="content">
+  <div class="row">
+    <p style="text-align: center; color:#fefaff;font-size: 22pt;text-shadow: 2px 2px white;color: black;"><b>{{
+      course.TITLE }}</b>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-lg-offset-1 summary">
+      <div class="col-lg-offset-1 col-md-offset-4  col-sm-offset-4 col-xs-offset-1">
+        <div class="info-item">
+          <div class="info-item-title">
+            <span> <i class="fa fa-bookmark"></i> Presentación del curso</span>
+          </div>
+          <iframe src="https://player.vimeo.com/video/183119064" width="290" height="250" frameborder="0"
+                  webkitallowfullscreen
+                  mozallowfullscreen allowfullscreen></iframe>
+        </div>
+
+        <div class="info-item">
+          <div class="info-item-title">
+            <span><i class="fa fa-info-circle"></i> Información del curso</span>
+          </div>
+          <img [src]="course.IMAGE" alt="{{ course.TITLE }}" class="img-responsive">
+          <p>Por: {{ course.TEACHER_NAME }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-7 lessons-body">
+      <div style="background: white;border: 1px">
+        <div style="background: #0d559d;padding: 6px;">
+          <span style="color: white;font-weight: 600;font-size: 14pt"><i class="fa fa-th-list"></i> Contenido del curso</span>
+        </div>
+
+        <div class="lections">
+          <div class="lection" *ngFor="let lection of course.LECTIONS;let i=index"
+               [routerLink]="['/courses',courseName,i+1]">
+            <span> <i class="fa fa-play-circle"></i> {{ lection.LECTION_TITLE }}</span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <!--<iframe src="https://player.vimeo.com/video/183120034" width="640" height="360" frameborder="0"-->
+      <!--webkitallowfullscreen-->
+      <!--mozallowfullscreen allowfullscreen></iframe>-->
+    </div>
+
+  </div>
+</div>
+
+
+<div *ngIf="!exists" class="content">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> Error!</h3>
+    </div>
+    <div class="panel-body">
+      The course that you're looking for does not exist anymore!.
+    </div>
+    <div class="panel-footer">
+      <button [routerLink]="['/']" class="btn btn-danger">Return to home...</button>
+    </div>
+  </div>
+
+</div>
+
+
+<div *ngIf="score" class="container">
+  <div class="row">
+
+    <h2 style="text-align: center;">Puntaje: {{ ans+'/'+test.body.length }} </h2>
+    <br>
+    <div class="col-lg-offset-2 col-lg-8">
+      <div class="alert alert-{{ ((ans/test.body.length)*100)<60?'danger':'success' }}">
+        <i class="fa fa-edit"></i> <strong>{{ scoreMessage }}</strong>
+      </div>
+      <div class="col-lg-offset-5 col-lg-5" >
+        <button type="button" class="btn btn-success"  *ngIf="((ans/test.body.length)*100)<60" (click)="backLesson()"> Presentar de nuevo</button>
+        <button type="button" class="btn btn-success" *ngIf="((ans/test.body.length)*100)>=60" (click)="goLessons()"> Ir a las lecciones del curso</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+<div *ngIf="attempt==3" class="container">
+  <div class="row">
+    <h2 style="text-align: center;">Curso no disponible</h2>
+    <br>
+    <div class="col-lg-offset-2 col-lg-8">
+      <div class="alert alert-danger">
+        <i class="fa fa-edit"></i> <strong> :| Lo sentimos, has usado todos los intentos permitidos. Te esperamos en un nuevo curso.</strong>
+      </div>
+      <div class="col-lg-offset-4 col-lg-5">
+        <button type="button" class="btn btn-success" [routerLink]="['/courses']"> Regresar a mis cursos
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>

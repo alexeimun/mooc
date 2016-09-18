@@ -1,0 +1,54 @@
+<div class="signup row">
+  <div class="" style="opacity: .85;text-align: center;margin-left: 5%;margin-top: 3%;font-size: 27pt">
+    <span style="color:#fefaff; text-shadow: 2px 2px #2b269a;"><b>Sign in</b></span>
+  </div>
+  <!-- /.login-logo -->
+  <form class="col-md-8 col-md-push-2 col-lg-5 col-lg-push-4 col-sm-9 col-sm-push-2  col-xs-12 col-xs-push-0"
+        (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <div class="form-group has-feedback">
+      <input autofocus type="text" class="form-control" placeholder="Username" required [(ngModel)]="signup.USERNAME"
+             [ngClass]="{'user-exist': valusername}" (keyup)="validateUser($event,'username')" name="username"/>
+      <span class="fa fa-user form-control-feedback" style="color:#106cc8; "></span>
+    </div>
+    <div [hidden]="!valusername" class="alert alert-warning">
+      <i class="fa fa-warning"></i> The username already exist!
+    </div>
+    <div class="form-group has-feedback">
+      <input autofocus type="text" class="form-control" placeholder="Email" required [(ngModel)]="signup.EMAIL" name="email" #email
+             (keyup)="validateUser($event,'email')" [ngClass]="{'user-exist': valemail}" (blur)="validateEmail(email.value)"/>
+      <span class="fa fa-envelope form-control-feedback" style="color:#106cc8;"></span>
+    </div>
+    <div [hidden]="validemail" class="alert alert-warning">
+      <i class="fa fa-warning"></i> The email must be valid!
+    </div>
+    <div [hidden]="!valemail" class="alert alert-warning">
+      <i class="fa fa-warning"></i> The email already exist!
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="password" class="form-control" placeholder="Password" required name="passwd" value=""
+             [(ngModel)]="signup.PASSWORD" #passwd/>
+      <span class="fa fa-lock form-control-feedback" style="color:#106cc8;"></span>
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="password" class="form-control" placeholder="Repeat the password" required [(ngModel)]="rpassword" name="rpassword"
+              #rpasswd/>
+      <span class="fa fa-lock form-control-feedback" style="color:#106cc8;"></span>
+    </div>
+    <div [hidden]="rpasswd.value === passwd.value" class="alert alert-danger">
+      <i class="fa fa-exclamation-circle"></i> the password doesn't match
+    </div>
+    <div [hidden]="signup.PASSWORD.length >= 8 || signup.PASSWORD==='' || rpasswd.value !== passwd.value" class="alert alert-danger">
+      <i class="fa fa-exclamation-circle"></i> The password must content at least 8 characters
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-xs-push-3">
+        <button type="submit" class="btn btn-block btn-login"
+                [disabled]="!signupForm.form.valid || rpasswd.value != passwd.value  || (rpasswd.value|| '').length <= 8 || valemail || valusername || !validemail">Sign up <i
+          class="fa fa-sign-in"></i></button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
+</div>

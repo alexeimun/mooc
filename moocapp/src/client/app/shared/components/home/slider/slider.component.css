@@ -1,0 +1,325 @@
+ul li a,
+ul li a:after,
+ul li a:before
+{
+  transition: all .5s;
+}
+
+/* Keyframes */
+@-webkit-keyframes fill
+{
+  0%
+  {
+    width: 0%;
+    height: 1px;
+  }
+  50%
+  {
+    width: 100%;
+    height: 1px;
+  }
+  100%
+  {
+    width: 100%;
+    height: 100%;
+    background: #02c7da;
+  }
+}
+
+/* Keyframes */
+@-webkit-keyframes circle
+{
+  0%
+  {
+    width: 1px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 1px;
+    z-index: -1;
+    background: #02c7da;
+    border-radius: 100%;
+  }
+  100%
+  {
+    background: #02c7da;
+    height: 5000%;
+    width: 5000%;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 0;
+  }
+}
+
+/*--banner--*/
+.banner
+{
+  background: url(../../../assets/images/banner.jpg) no-repeat center;
+  width: 100%;
+  height: 700px;
+  text-align: center;
+  padding-top: 11.5em;
+  background-size: cover;
+  margin-top: -20px !important;
+}
+
+.banner-text
+{
+  position: relative;
+}
+
+.banner-text h2
+{
+  font-size: 3em;
+  color: #fff;
+  display: block;
+  line-height: 2em;
+  font-weight: 100;
+}
+
+.banner-text h2 span
+{
+  display: block;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.banner-text h6
+{
+  font-size: 1.4em;
+  color: #fff;
+  line-height: 1.4em;
+  font-style: italic;
+  font-family: 'Crimson Text', serif;
+}
+
+.banner-text b
+{
+  /*-- w3layouts --*/
+  font-size: 10em;
+  color: #fff;
+  position: absolute;
+  top: 7%;
+  left: 0;
+  font-weight: 100;
+}
+
+.banner-text b.right-a
+{
+  right: 0;
+  left: auto;
+}
+
+/*--- slider-css --*/
+.slider
+{
+  position: relative;
+}
+
+.rslides
+{
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.rslides li
+{
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides li:first-child
+{
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.rslides img
+{
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+
+.rslides_tabs
+{
+  background: none !important;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  top: -90px;
+  /*-- agileits --*/
+  z-index: 999;
+}
+
+#toTop
+{
+  display: none;
+  text-decoration: none;
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  border: none;
+  text-indent: 100%;
+  background: url(../../../assets/images/banner.jpg) no-repeat 0px 0px;
+}
+
+@media (max-width: 1440px)
+{
+  .nav-top
+  {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1366px)
+{
+}
+
+@media (max-width: 1280px)
+{
+  .nav-top
+  {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1080px)
+{
+  @media (max-width: 991px)
+  {
+    .banner-text h2 span
+    {
+      font-size: 1.2em;
+    }
+
+    .banner-text b
+    {
+      font-size: 8em;
+    }
+
+    ul.callbacks_tabs.callbacks1_tabs
+    {
+      right: 31%;
+    }
+
+    .banner
+    {
+      width: 100%;
+      height: 500px;
+      padding-top: 5.5em;
+    }
+  }
+  @media (max-width: 768px)
+  {
+    figcaption h3
+    {
+      margin-top: 58px;
+    }
+  }
+  @media (max-width: 767px)
+  {
+    div#bs-example-navbar-collapse-1
+    {
+      text-align: center;
+    }
+
+    .banner-text h2
+    {
+      font-size: 2.5em;
+      line-height: 1.7em;
+    }
+
+    .banner
+    {
+      height: 400px;
+    }
+  }
+  @media (max-width: 600px)
+  {
+    .banner-text h2
+    {
+      font-size: 2.2em;
+      line-height: 1.6em;
+    }
+
+    .banner
+    {
+      height: 350px;
+    }
+
+    .nav-top
+    {
+      width: 84%;
+    }
+
+    .banner-text b
+    {
+      font-size: 5em;
+    }
+
+    .banner-text h6
+    {
+      font-size: 1.1em;
+    }
+
+    .banner-text h2 span
+    {
+      font-size: 1.05em;
+    }
+  }
+  @media (max-width: 414px)
+  {
+    .banner-text h2
+    {
+      font-size: 1.4em;
+      line-height: 1.5em;
+    }
+
+    .banner-text h6
+    {
+      font-size: 0.9em;
+    }
+
+    .banner-text b
+    {
+      font-size: 4em;
+    }
+
+    .banner-text b
+    {
+      top: -3%;
+    }
+
+    .banner-text h6
+    {
+      font-size: 0.875em;
+    }
+
+    .banner
+    {
+      height: 240px;
+      padding-top: 4em;
+    }
+  }
+}
