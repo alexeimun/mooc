@@ -7,6 +7,12 @@
           <div class="row">
             <div class="col-lg-offset-1 col-lg-11"> {{ num+1 }}. <span class="qtext">{{question.title}}</span></div>
           </div>
+
+          <div class="row" *ngIf="question.image" style="margin-bottom: 5px">
+            <div class="col-lg-offset-1 col-lg-11">
+              <img [src]="'/assets/images/material/lesson'+lessonNumber+'/'+question.image+'.png'" alt="No disponible">
+            </div>
+          </div>
           <div class="row" *ngFor="let option  of question.options;let i=index">
             <div class="col-lg-offset-1 col-lg-1 col-md-1"><input type='radio' value="{{ literals[i] }}"
                                                                   name="option{{ num+'r'+i }}"
@@ -61,12 +67,25 @@
     <div class="row">
       <h3 style="text-align: center;"><i class="fa fa-book"></i> Material de apoyo para esta lección</h3>
       <br>
-      <div class="col-lg-offset-5 col-md-offset-4 col-sm-offset-4">
+      <div class="col-lg-offset-5 col-md-offset-4 col-sm-offset-4" *ngIf="lessonNumber==1">
         <li><a target="_blank" href="/support/lesson1/capitulo_1_estructura_programa_cplusplus.pdf">Capitulo 1 Estructura Programa C++</a></li>
         <li><a target="_blank" href="/support/lesson1/capitulo_2_tipos_de_datos_cpluplus_blank.pdf">Capitulo 2 Tipos de Datos C++</a></li>
         <li><a target="_blank" href="/support/lesson1/capitulo_2_tipos_de_datos_plusplus.pdf">Capitulo 2 Tipos de Datos C++</a></li>
         <li><a target="_blank" href="/support/lesson1/capitulo_3_entrada_y_salida_de_datoscplusplus.pdf">Capitulo 3 Entrada y Salida de Datos
           C++</a></li>
+      </div>
+      <div class="col-lg-offset-5 col-md-offset-4 col-sm-offset-4" *ngIf="lessonNumber==2">
+        <li><a target="_blank" href="/support/lesson2/capitulo_4_estructuras_if_y_else.pdf">Capitulo 4 estructuras if y else</a></li>
+        <li><a target="_blank" href="/support/lesson2/capitulo_4_estructuras_if_y_else_version_estandar.pdf">Capitulo 4 estructuras if y else version estandar</a></li>
+        <li><a target="_blank" href="/support/lesson2/capitulo_4_estructuras_if_y_else_version_resumida.pdf">Capitulo 4 estructuras if y else version resumida</a></li>
+        <li><a target="_blank" href="/support/lesson2/capitulo_5_funciones_y_procedimientos.pdf">Capitulo 5 funciones y procedimientos</a></li>
+        <li><a target="_blank" href="/support/lesson2/capitulo_5_funciones_y_procedimientos_version_estandar.pdf">Capitulo 5 funciones y procedimientos version estandar</a></li>
+      </div>
+
+      <div class="col-lg-offset-5 col-md-offset-4 col-sm-offset-4" *ngIf="lessonNumber==3">
+        <li><a target="_blank" href="/support/lesson3/capitulo_6_ciclos_repetitivos.pdf">Capitulo 6 ciclos repetitivos</a></li>
+        <li><a target="_blank" href="/support/lesson3/capitulo_7_ciclos_repetitivos.pdf">Capitulo 7 ciclos repetitivos</a></li>
+        <li><a target="_blank" href="/support/lesson3/capitulo_8_ciclos_repetitivos.pdf">Capitulo 8 ciclos repetitivos</a></li>
       </div>
       <br>
       <div class="row">
@@ -88,7 +107,7 @@
         <i class="fa fa-edit"></i> <strong>{{ scoreMessage }}</strong>
       </div>
       <div class="col-lg-offset-5 col-lg-5">
-        <button type="button" class="btn btn-success" (click)="backLesson()"> Regresar a la lección
+        <button type="button" class="btn btn-success" [routerLink]="['/courses',courseName]"> Regresar a las lecciones del curso
         </button>
       </div>
     </div>

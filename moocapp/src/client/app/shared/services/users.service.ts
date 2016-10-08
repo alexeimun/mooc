@@ -5,33 +5,18 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import {urlBunch} from '../classes/index';
 import {User} from '../models/index';
-import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable} from "angularfire2/angularfire2";
+import 'rxjs/Rx';
 
 @Injectable()
 export class UserService extends User {
 
   private headers = new Headers({'Content-Type' : 'application/json', 'Accept' : 'application/json'});
-  users: FirebaseListObservable<any[]>;
+  users:any;
 
-  login()
-  {
-    this.af.auth.login({
-      provider : AuthProviders.Google,
-      method : AuthMethods.Popup,
-    })
-  }
-
-  logout()
-  {
-    this.af.auth.logout();
-  }
 
   signOut = () =>
   {
 
-    if(this.googleUser()) {
-      this.logout();
-    }
     this.removeUser();
     setTimeout(()=>
     {
@@ -39,49 +24,9 @@ export class UserService extends User {
     }, 200);
   };
 
-  onSignIn()
-  {
-    //this.users = this.af.database.list('users');
-    //this.users.subscribe(data => console.log())
-    this.af.auth.subscribe(auth =>
-    {
-      if(auth) {
-        let gl = {
-          TOKEN_ID : auth.auth.refreshToken,
-          NAME : auth.auth.displayName,
-          EMAIL : auth.auth.email,
-          IMAGE_URL : auth.auth.photoURL,
-          TYPE_USER : 1
-        };
-        this.postUser(gl).subscribe(res =>
-          {
-            if(res.status == true) {
-              this.setUser(res.data);
-              this.router.navigateByUrl('/');
-            }
-            else {
-              console.log('there was an error!');
-            }
-          },
-          error =>
-          {
-            console.log(error);
-          });
-      }
-      else console.log('youre out');
-    });
-  }
-
-  constructor(private http: Http, private router: Router, public af: AngularFire)
+  constructor(private http: Http, private router: Router)
   {
     super();
-  }
-
-  pushUser(data: any)
-  {
-    this.users = this.af.database.list('users');
-    //this.users.set(data);
-
   }
 
   postUser(data: any): Observable<any>
@@ -112,10 +57,6 @@ export class UserService extends User {
     localStorage.setItem('user', JSON.stringify(userdata));
   }
 
-  googleUser(): boolean
-  {
-    return this.getUser().hasOwnProperty('TYPE_USER');
-  }
 
   public removeUser(): void
   {

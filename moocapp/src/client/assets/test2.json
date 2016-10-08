@@ -1,0 +1,112 @@
+{
+  "title": "Funciones y comparadores lógicos",
+  "body": [
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "image": "img1",
+      "options": [
+        "5",
+        "3",
+        "2",
+        "-2"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "image": "img2",
+      "options": [
+        "2",
+        "32",
+        "8",
+        "4"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "image": "img3",
+      "options": [
+        "10",
+        "25",
+        "15",
+        "20"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "image": "img4",
+      "options": [
+        "10",
+        "5",
+        "-10",
+        "0"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "image": "img5",
+      "options": [
+        "50",
+        "10",
+        "-10",
+        "0"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "image": "img6",
+      "options": [
+        "10",
+        "50",
+        "-10",
+        "30"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "Para las preguntas 7, 8, 9 y 10 tener en cuenta el siguiente fragmento de código\nSi puntaje tiene el valor de 75 ¿Cuál es la salida en pantalla?",
+      "image": "img7",
+      "options": [
+        "Casi lo ganas",
+        "El puntaje es Invalido",
+        "Intenta Nuevamente",
+        "Bueno"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "Si puntaje tiene el valor de 90 ¿Cuál es la salida en pantalla?",
+      "options": [
+        "Casi lo ganas",
+        "El puntaje es Invalido",
+        "Muy Bueno",
+        "Intenta Nuevamente"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "Si puntaje tiene el valor de 90 ¿Cuál es la salida en pantalla?",
+      "options": [
+        "Casi lo ganas",
+        "Excelente Resultado",
+        "Muy Bueno",
+        "Intenta Nuevamente"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "Si puntaje tiene el valor de 61 ¿cuál es la salida en pantalla?",
+      "options": [
+        "El puntaje es Invalido",
+        "Muy Bueno",
+        "Intenta Nuevamente",
+        "Casi lo ganas"
+      ],
+      "answear": "d"
+    }
+  ]
+}

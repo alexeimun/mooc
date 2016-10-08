@@ -156,16 +156,7 @@
 
         public function TraeLections($IdCourse)
         {
-            $limit = 1;
-            if(date('m') == 10 && date('d') >= 1 && date('d') < 7)
-            {
-                $limit = 2;
-            }
-            else if(date('m') == 10 && date('d') > 7)
-            {
-                $limit = 3;
-            }
-            return $this->db->get_where('t_lections', ['ID_COURSE' => $IdCourse], $limit)->result_array();
+            return $this->db->get_where('t_lections', ['ID_COURSE' => $IdCourse])->result_array();
         }
 
         public function hasPrevTest($IdUser)

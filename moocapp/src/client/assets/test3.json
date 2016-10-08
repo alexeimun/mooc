@@ -1,0 +1,110 @@
+{
+  "title": "Ciclos repetitivos",
+  "body": [
+    {
+      "title": "Responda las preguntas 1, 2 y 3 con base a las siguientes líneas de código\n¿Cuál es la salida del ultimo cout del programa?",
+      "image": "img1",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "-1"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "¿Cuantas veces el comando cout es ejecutado en el while?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "-2"
+      ],
+      "answear": "a"
+    },
+    {
+      "title": "¿Cuántas veces la sentencia “While (count<=3)” es ejecutada?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "Responda las preguntas 4 y 5 con base a las siguientes líneas de código.\n¿Cuantas veces la sentencia cout en el ciclo for es ejecutada?",
+      "image": "img3",
+      "options": [
+        "3",
+        "6",
+        "4",
+        "5"
+      ],
+      "answear": "d"
+    },
+    {
+      "title": "¿Cuál es el valor de la variable index cuando está en la segunda iteración?",
+      "options": [
+        "5",
+        "4",
+        "6",
+        "3"
+      ],
+      "answear": "4"
+    },
+    {
+      "title": "Se desea imprimir los numero pares entre el 14 y el 20, ¿Cuál es la sentencia de código correcta?",
+      "options": [
+        "For (i = 12; i < 20; i = i + 2)",
+        "For (i = 14; i < 20; i = i + 2)",
+        "For (i = 14; i <= 20; i = i + 2)",
+        "For (i = 14; i < 23; i = i + 2)"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "¿Cuál es el resultado que da el siguiente programa?",
+      "image": "img7",
+      "options": [
+        "3",
+        "5",
+        "6",
+        "4"
+      ],
+      "answear": "c"
+    },
+    {
+      "title": "Responda las preguntas 8 y 9 con base al siguiente código\n¿Cuál es valor que hace detener el ciclo while del siguiente código?",
+      "image": "img8",
+      "options": [
+        "0",
+        "Todos los números menores que cero",
+        "Todos los números menores o iguales a cero",
+        "35"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "¿Cuál es la salida del siguiente programa?",
+      "options": [
+        "Imprime todas las ventas desde 100 hasta 0",
+        "Imprime todas las ventas desde 100 hasta 1",
+        "No imprime nada",
+        "Imprime todas las ventas desde 99 hasta 1"
+      ],
+      "answear": "b"
+    },
+    {
+      "title": "¿Cuál es la salida del programa anterior?",
+      "image": "img10",
+      "options": [
+        "15",
+        "0",
+        "5",
+        "10"
+      ],
+      "answear": "c"
+    }
+  ]
+}

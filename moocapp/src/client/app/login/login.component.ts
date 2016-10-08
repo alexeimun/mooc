@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   {
     if(userService.getUser())
       this.router.navigate(['/']);
-    this.userService.onSignIn();
   }
 
   onSubmit()

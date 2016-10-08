@@ -1,15 +1,15 @@
-import { join } from 'path';
-import { argv } from 'yargs';
+import {join} from 'path';
+import {argv} from 'yargs';
 
-import { Environments, InjectableDependency } from './seed.config.interfaces';
+import {Environments, InjectableDependency} from './seed.config.interfaces';
 
 /**
  * The enumeration of available environments.
  * @type {Environments}
  */
 export const ENVIRONMENTS: Environments = {
-  DEVELOPMENT: 'dev',
-  PRODUCTION: 'prod'
+  DEVELOPMENT : 'dev',
+  PRODUCTION : 'prod'
 };
 
 /**
@@ -66,9 +66,9 @@ export class SeedConfig {
   COVERAGE_PORT = argv['coverage-port'] || 4004;
 
   /**
-  * The path to the coverage output
-  * NB: this must match what is configured in ./karma.conf.js
-  */
+   * The path to the coverage output
+   * NB: this must match what is configured in ./karma.conf.js
+   */
   COVERAGE_DIR = 'coverage';
 
   /**
@@ -131,7 +131,7 @@ export class SeedConfig {
    * `hot_loader_main.ts` file will be used.
    * @type {string}
    */
-  BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main');
+  BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' :'main');
 
   /**
    * The default title of the application as used in the `<title>` tag of the
@@ -209,14 +209,13 @@ export class SeedConfig {
    * The folder for the built files, corresponding to the current environment.
    * @type {string}
    */
-  APP_DEST = this.ENV === ENVIRONMENTS.DEVELOPMENT ? this.DEV_DEST : this.PROD_DEST;
+  APP_DEST = this.ENV === ENVIRONMENTS.DEVELOPMENT ? this.DEV_DEST :this.PROD_DEST;
 
   /**
    * The folder for the built CSS files.
    * @type {strings}
    */
   CSS_DEST = `${this.APP_DEST}/css`;
-
 
   /**
    * The folder for the built JavaScript files.
@@ -276,10 +275,10 @@ export class SeedConfig {
    * @type {InjectableDependency[]}
    */
   NPM_DEPENDENCIES: InjectableDependency[] = [
-    { src: 'zone.js/dist/zone.js', inject: 'libs' },
-    { src: 'core-js/client/shim.min.js', inject: 'shims' },
-    { src: 'systemjs/dist/system.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
-    { src: 'rxjs/bundles/Rx.umd.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
+    {src : 'zone.js/dist/zone.js', inject : 'libs'},
+    {src : 'core-js/client/shim.min.js', inject : 'shims'},
+    {src : 'systemjs/dist/system.src.js', inject : 'shims', env : ENVIRONMENTS.DEVELOPMENT},
+    {src : 'rxjs/bundles/Rx.umd.min.js', inject : 'libs', env : ENVIRONMENTS.DEVELOPMENT},
   ];
 
   /**
@@ -287,9 +286,13 @@ export class SeedConfig {
    * @type {InjectableDependency[]}
    */
   APP_ASSETS: InjectableDependency[] = [
-    { src: `${this.CSS_SRC}/main.${this.getInjectableStyleExtension()}`, inject: true, vendor: false },
+    {src : `${this.CSS_SRC}/main.${this.getInjectableStyleExtension()}`, inject : true, vendor : false},
     {src : `${this.CSS_SRC}/AdminLTE.min.${ this.getInjectableStyleExtension() }`, inject : true, vendor : false},
-    {src : `${this.CSS_SRC}/skins/_all-skins.min.css.${ this.getInjectableStyleExtension() }`, inject : true, vendor : false},
+    {
+      src : `${this.CSS_SRC}/skins/_all-skins.min.css.${ this.getInjectableStyleExtension() }`,
+      inject : true,
+      vendor : false
+    },
 
     //Type here css local js files
     {src : `${this.JS_SRC}/responsiveslides.min.js`, inject : true, vendor : false},
@@ -308,9 +311,9 @@ export class SeedConfig {
    * Returns the array of injectable dependencies (npm dependencies and assets).
    * @return {InjectableDependency[]} The array of npm dependencies and assets.
    */
-  get DEPENDENCIES(): InjectableDependency[] {
-    return normalizeDependencies(this.NPM_DEPENDENCIES.filter(filterDependency.bind(null, this.ENV)))
-      .concat(this.APP_ASSETS.filter(filterDependency.bind(null, this.ENV)));
+  get DEPENDENCIES(): InjectableDependency[]
+  {
+    return normalizeDependencies(this.NPM_DEPENDENCIES.filter(filterDependency.bind(null, this.ENV))).concat(this.APP_ASSETS.filter(filterDependency.bind(null, this.ENV)));
   }
 
   /**
@@ -318,34 +321,28 @@ export class SeedConfig {
    * @type {any}
    */
   protected SYSTEM_CONFIG_DEV: any = {
-    defaultJSExtensions: true,
-    packageConfigPaths: [
+    defaultJSExtensions : true,
+    packageConfigPaths : [
       `/node_modules/*/package.json`,
       `/node_modules/**/package.json`,
       `/node_modules/@angular/*/package.json`
     ],
-    paths: {
-      [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
-      '@angular/common': `node_modules/@angular/common/bundles/common.umd.js`,
-      '@angular/compiler': `node_modules/@angular/compiler/bundles/compiler.umd.js`,
-      '@angular/core': `node_modules/@angular/core/bundles/core.umd.js`,
-      '@angular/forms': `node_modules/@angular/forms/bundles/forms.umd.js`,
-      '@angular/http': `node_modules/@angular/http/bundles/http.umd.js`,
-      '@angular/platform-browser': `node_modules/@angular/platform-browser/bundles/platform-browser.umd.js`,
-      '@angular/platform-browser-dynamic': `node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js`,
-      '@angular/router': `node_modules/@angular/router/bundles/router.umd.js`,
-      'rxjs/*': `node_modules/rxjs/*`,
-      'angularfire2' : `node_modules/angularfire2/angularfire2.js`,
-      'firebase' : `node_modules/firebase/firebase.js`,
-      'app/*': `/app/*`,
-      '*': `node_modules/*`
+    paths : {
+      [this.BOOTSTRAP_MODULE] : `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
+      '@angular/common' : `node_modules/@angular/common/bundles/common.umd.js`,
+      '@angular/compiler' : `node_modules/@angular/compiler/bundles/compiler.umd.js`,
+      '@angular/core' : `node_modules/@angular/core/bundles/core.umd.js`,
+      '@angular/forms' : `node_modules/@angular/forms/bundles/forms.umd.js`,
+      '@angular/http' : `node_modules/@angular/http/bundles/http.umd.js`,
+      '@angular/platform-browser' : `node_modules/@angular/platform-browser/bundles/platform-browser.umd.js`,
+      '@angular/platform-browser-dynamic' : `node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js`,
+      '@angular/router' : `node_modules/@angular/router/bundles/router.umd.js`,
+      'rxjs/*' : `node_modules/rxjs/*`,
+      'app/*' : `/app/*`,
+      '*' : `node_modules/*`
     },
-    packages: {
-      rxjs: { defaultExtension: 'js' },
-      angularfire2: {
-        defaultExtension: 'js',
-        main: 'angularfire2.js'
-      }
+    packages : {
+      rxjs : {defaultExtension : 'js'},
     }
   };
 
@@ -361,56 +358,54 @@ export class SeedConfig {
    * @type {any}
    */
   SYSTEM_BUILDER_CONFIG: any = {
-    defaultJSExtensions: true,
-    packageConfigPaths: [
+    defaultJSExtensions : true,
+    packageConfigPaths : [
       join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
       join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
     ],
-    paths: {
-      [`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
-      'firebase': 'node_modules/firebase/firebase.js',
-      'angularfire2': `node_modules/angularfire2/angularfire2.js`,
-      '*': 'node_modules/*'
+    paths : {
+      [`${this.TMP_DIR}/*`] : `${this.TMP_DIR}/*`,
+      '*' : 'node_modules/*'
     },
-    packages: {
-      '@angular/common': {
-        main: 'index.js',
-        defaultExtension: 'js'
+    packages : {
+      '@angular/common' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/compiler': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/compiler' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/core/testing': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/core/testing' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/core': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/core' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/forms': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/forms' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/http': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/http' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/platform-browser': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/platform-browser' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/platform-browser-dynamic': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/platform-browser-dynamic' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      '@angular/router': {
-        main: 'index.js',
-        defaultExtension: 'js'
+      '@angular/router' : {
+        main : 'index.js',
+        defaultExtension : 'js'
       },
-      'rxjs': {
-        defaultExtension: 'js'
+      'rxjs' : {
+        defaultExtension : 'js'
       }
     }
   };
@@ -435,8 +430,7 @@ export class SeedConfig {
    * White list for CSS color guard
    * @type {[string, string][]}
    */
-  COLOR_GUARD_WHITE_LIST: [string, string][] = [
-  ];
+  COLOR_GUARD_WHITE_LIST: [string, string][] = [];
 
   /**
    * Configurations for NPM module configurations. Add to or override in project.config.ts.
@@ -450,33 +444,33 @@ export class SeedConfig {
      * Example: `npm start -- --b`
      * @type {any}
      */
-    'browser-sync': {
-      middleware: [require('connect-history-api-fallback')({ index: `${this.APP_BASE}index.html` })],
-      port: this.PORT,
-      startPath: this.APP_BASE,
-      open: argv['b'] ? false : true,
-      injectChanges: false,
-      server: {
-        baseDir: `${this.DIST_DIR}/empty/`,
-        routes: {
-          [`${this.APP_BASE}${this.APP_SRC}`]: this.APP_SRC,
-          [`${this.APP_BASE}${this.APP_DEST}`]: this.APP_DEST,
-          [`${this.APP_BASE}node_modules`]: 'node_modules',
-          [`${this.APP_BASE.replace(/\/$/, '')}`]: this.APP_DEST
+    'browser-sync' : {
+      middleware : [require('connect-history-api-fallback')({index : `${this.APP_BASE}index.html`})],
+      port : this.PORT,
+      startPath : this.APP_BASE,
+      open : argv['b'] ? false :true,
+      injectChanges : false,
+      server : {
+        baseDir : `${this.DIST_DIR}/empty/`,
+        routes : {
+          [`${this.APP_BASE}${this.APP_SRC}`] : this.APP_SRC,
+          [`${this.APP_BASE}${this.APP_DEST}`] : this.APP_DEST,
+          [`${this.APP_BASE}node_modules`] : 'node_modules',
+          [`${this.APP_BASE.replace(/\/$/, '')}`] : this.APP_DEST
         }
       }
     },
 
     // Note: you can customize the location of the file
-    'environment-config': join(this.PROJECT_ROOT, this.TOOLS_DIR, 'env'),
+    'environment-config' : join(this.PROJECT_ROOT, this.TOOLS_DIR, 'env'),
 
     /**
      * The options to pass to gulp-sass (and then to node-sass).
      * Reference: https://github.com/sass/node-sass#options
      * @type {object}
      */
-    'gulp-sass': {
-      includePaths: ['./node_modules/']
+    'gulp-sass' : {
+      includePaths : ['./node_modules/']
     },
 
     /**
@@ -484,10 +478,10 @@ export class SeedConfig {
      * Reference: https://github.com/mariocasciaro/gulp-concat-css
      * @type {object}
      */
-    'gulp-concat-css': {
-      targetFile: this.CSS_PROD_BUNDLE,
-      options: {
-        rebaseUrls: false
+    'gulp-concat-css' : {
+      targetFile : this.CSS_PROD_BUNDLE,
+      options : {
+        rebaseUrls : false
       }
     }
   };
@@ -497,7 +491,8 @@ export class SeedConfig {
    * @param {any} target The target object (to receive values from source)
    * @param {any} source The source object (to be merged onto target)
    */
-  mergeObject(target: any, source: any) {
+  mergeObject(target: any, source: any)
+  {
     const deepExtend = require('deep-extend');
     deepExtend(target, source);
   }
@@ -506,15 +501,17 @@ export class SeedConfig {
    * Locate a plugin configuration object by plugin key.
    * @param {any} pluginKey The object key to look up in PLUGIN_CONFIGS.
    */
-  getPluginConfig(pluginKey: string): any {
-    if (this.PLUGIN_CONFIGS[pluginKey]) {
+  getPluginConfig(pluginKey: string): any
+  {
+    if(this.PLUGIN_CONFIGS[pluginKey]) {
       return this.PLUGIN_CONFIGS[pluginKey];
     }
     return null;
   }
 
-  getInjectableStyleExtension() {
-    return this.ENV === ENVIRONMENTS.PRODUCTION && this.ENABLE_SCSS ? 'scss' : 'css';
+  getInjectableStyleExtension()
+  {
+    return this.ENV === ENVIRONMENTS.PRODUCTION && this.ENABLE_SCSS ? 'scss' :'css';
   }
 
 }
@@ -523,9 +520,9 @@ export class SeedConfig {
  * Normalizes the given `deps` to skip globs.
  * @param {InjectableDependency[]} deps - The dependencies to be normalized.
  */
-export function normalizeDependencies(deps: InjectableDependency[]) {
-  deps
-    .filter((d: InjectableDependency) => !/\*/.test(d.src)) // Skip globs
+export function normalizeDependencies(deps: InjectableDependency[])
+{
+  deps.filter((d: InjectableDependency) => !/\*/.test(d.src)) // Skip globs
     .forEach((d: InjectableDependency) => d.src = require.resolve(d.src));
   return deps;
 }
@@ -536,11 +533,12 @@ export function normalizeDependencies(deps: InjectableDependency[]) {
  * @param  {InjectableDependency} d   - The dependency to check.
  * @return {boolean}                    `true` if the dependency is used in this environment, `false` otherwise.
  */
-function filterDependency(env: string, d: InjectableDependency): boolean {
-  if (!d.env) {
+function filterDependency(env: string, d: InjectableDependency): boolean
+{
+  if(!d.env) {
     d.env = Object.keys(ENVIRONMENTS).map(k => ENVIRONMENTS[k]);
   }
-  if (!(d.env instanceof Array)) {
+  if(!(d.env instanceof Array)) {
     (<any>d).env = [d.env];
   }
   return d.env.indexOf(env) >= 0;
@@ -550,7 +548,8 @@ function filterDependency(env: string, d: InjectableDependency): boolean {
  * Returns the applications version as defined in the `package.json`.
  * @return {number} The applications version.
  */
-function appVersion(): number | string {
+function appVersion(): number | string
+{
   var pkg = require('../../package.json');
   return pkg.version;
 }
@@ -559,7 +558,8 @@ function appVersion(): number | string {
  * Returns the linting configuration to be used for `codelyzer`.
  * @return {string[]} The list of linting rules.
  */
-function customRules(): string[] {
+function customRules(): string[]
+{
   var lintConf = require('../../tslint.json');
   return lintConf.rulesDirectory;
 }
@@ -567,13 +567,15 @@ function customRules(): string[] {
 /**
  * Returns the environment of the application.
  */
-function getEnvironment() {
+function getEnvironment()
+{
   let base: string[] = argv['_'];
   let prodKeyword = !!base.filter(o => o.indexOf(ENVIRONMENTS.PRODUCTION) >= 0).pop();
   let env = (argv['env'] || '').toLowerCase();
-  if ((base && prodKeyword) || env === ENVIRONMENTS.PRODUCTION) {
+  if((base && prodKeyword) || env === ENVIRONMENTS.PRODUCTION) {
     return ENVIRONMENTS.PRODUCTION;
-  } else {
+  }
+  else {
     return ENVIRONMENTS.DEVELOPMENT;
   }
 }

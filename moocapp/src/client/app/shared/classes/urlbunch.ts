@@ -1,7 +1,7 @@
 export class urlBunch {
   //Url Parameters
-  private static hostname = `http://academicmooc.tk/mooc`;
-  //private static hostname = `http://localhost/mooc`;
+  //private static hostname = `http://academicmooc.tk/mooc`;
+  private static hostname = `http://localhost/mooc`;
   public static urls = {
     //User available urls
     user : {
